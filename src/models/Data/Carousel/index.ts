@@ -1,18 +1,12 @@
-/** @format */
-
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
 const carouselSchema = new mongoose.Schema({
-	src: {
-		type: String || mongoose.Schema.Types.ObjectId,
-		ref: 'Data',
-		required: true,
-	},
-	alt: String,
-	keywords: [String],
+  src: String,
+  alt: { en: String, fa: String, ar: String },
+  keywords:{ en: [String], fa: [String], ar: [String] },
 })
 
 const Carousel =
-	mongoose.models.Carousel || mongoose.model('Carousel', carouselSchema)
+  mongoose.models.Carousel || mongoose.model("Carousel", carouselSchema)
 
 export default Carousel
