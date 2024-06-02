@@ -4,17 +4,17 @@ import React, { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { MdEditDocument } from "react-icons/md"
 import styles from "../../List.module.css" // Update with your CSS file path
-import { Carouselo } from "@/DTO"
+import { Category } from "@/DTO"
 
 interface Props {
-  data: Carouselo[] | null
+  data: Category[] | null
   isLoading: boolean
   setEditItemId: (id: string) => void
 }
 const List: React.FC<Props> = ({ data, isLoading, setEditItemId }) => {
   return (
     <div className={styles.tableContainer}>
-      <div className={styles.header}>لیست عکس های کروژل</div>
+      <div className={styles.header}>لیست عکس های کتگوری</div>
       {isLoading ? (
         Array.apply(0, Array(7)).map((x, i) => (
           <div key={i} className={styles.loading}>
@@ -26,7 +26,7 @@ const List: React.FC<Props> = ({ data, isLoading, setEditItemId }) => {
         <table>
           <thead>
             <tr>
-              {["src", "alt", "keyword"].map((header) => (
+              {["Name", "Image", "Keywords"].map((header) => (
                 <th key={header}>{header}</th>
               ))}
               <th>Action</th>
@@ -34,26 +34,30 @@ const List: React.FC<Props> = ({ data, isLoading, setEditItemId }) => {
           </thead>
           <tbody>
             {data &&
-              data?.map((carousel) => (
-                <tr key={carousel._id}>
-                  {/* <td>{Object.entries(carousel.alt).map((d) => d)}</td> */}
+              data?.map((category) => (
+                <tr key={category._id}>
+                  {/* <td>{Object.entries(category.alt).map((d) => d)}</td> */}
+                  <td>
+                    <td>
+                      {Object.values(category.name).map(
+                        (name, index) => (
+                          <div key={index} className={styles.colorBox}>
+                            {name}
+                          </div>
+                        )
+                      )}
+                    </td>
+                  </td>
                   <td>
                     <Image
-                      src={`data:image/jpeg;base64,${carousel.src}`}
+                      src={`data:image/jpeg;base64,${category.src}`}
                       alt={``}
                       width={77}
                       height={77}
                     />
                   </td>
                   <td>
-                    {Object.values(carousel.alt).map((alto, index) => (
-                      <div key={index} className={styles.colorBox}>
-                        {alto}
-                      </div>
-                    ))}
-                  </td>
-                  <td>
-                    {Object.values(carousel.keywords).map((keyword, index) => (
+                    {Object.values(category.keywords).map((keyword, index) => (
                       <div key={index} className={styles.colorBox}>
                         {keyword}
                       </div>
@@ -62,7 +66,7 @@ const List: React.FC<Props> = ({ data, isLoading, setEditItemId }) => {
                   <td>
                     <MdEditDocument
                       className={styles.actionButton}
-                      onClick={() => setEditItemId(carousel._id)}
+                      onClick={() => setEditItemId(category._id)}
                     />
                   </td>
                 </tr>

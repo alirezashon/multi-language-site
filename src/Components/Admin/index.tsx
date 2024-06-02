@@ -1,4 +1,6 @@
 import Carousel from "./Carousel"
+import CategoryManager from "./Category"
+import ProductManager from "./Product"
 import styles from "./index.module.css"
 
 const Admin: React.FC = () => {
@@ -6,10 +8,13 @@ const Admin: React.FC = () => {
     <>
       <div className={styles.container}>
         <div className={styles.block}>
-          <div className={styles.contentBox}>
-            <Carousel/>
-            
-          </div>
+          <Carousel />
+        </div>
+        <div className={styles.block}>
+          <ProductManager />
+        </div>
+        <div className={styles.block}>
+          <CategoryManager />
         </div>
       </div>
     </>

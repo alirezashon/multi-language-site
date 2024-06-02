@@ -1,0 +1,23 @@
+.categoryBox {
+  width: 100%;
+  padding: 2vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(22%,0fr));  
+  background-color: rgb(189, 205, 200);
+}
+.category {
+  margin-left: 5%;
+  text-align: center;
+}
+.categorimage {
+  height: 33vh;
+  width: 100%;
+  
+}
+.categoriname {
+}
+@media (max-width:878px) {
+  .categoryBox {
+    grid-template-columns: repeat(auto-fit,minmax(33%,1fr));  
+  }  
+}

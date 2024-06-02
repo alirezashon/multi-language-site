@@ -1,19 +1,21 @@
 /** @format */
 
 import { NextApiRequest, NextApiResponse } from "next"
-import Product from "../../../../../../../models/Data/Product"
-import Category from "../../../../../../../models/Data/Category"
-import db from "../../../../../../../utils"
+import Carousel from "../../../../../models/Data/Carousel"
+import Category from "../../../../../models/Data/Category"
+import Product from "../../../../../models/Data/Product"
+import db from "../../../../../utils"
 
 const cateBrand = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (req.method === "POST") {
       const { authType } = req.body
-      if (authType === "^c(a)ta*sEa0c(Tzol&i^*o%l#sA!") {
+      if (authType === "^c(a)ta*@x$a#r#x%s^ezl&i#A!") {
         await db.connect2DB()
-        const product = await Product.find({})
-        const category = await Category.find({})
-        res.status(200).json({ product, category })
+        const carousel = await Carousel.find({})
+        const categories = await Category.find({})
+        const products = await Product.find({})
+        res.status(200).json({ carousel, products, categories })
       } else {
         res.status(407).json({ success: false })
       }

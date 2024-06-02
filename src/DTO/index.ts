@@ -13,7 +13,7 @@ export interface Category {
   src: string
   keywords: { en: string[]; fa: string[]; ar: string[] }
 }
-export interface Carousel {
+export interface Carouselo {
   _id: string
   src: string
   alt: { en: string; fa: string; ar: string }
@@ -25,4 +25,26 @@ export interface Form {
   contact: string
   description: string
   date: Date
+}
+
+export interface Producted {
+  _id: string
+  title: string
+  src: string
+  link: string
+  description: string
+  keywords: string[]
+}
+
+export interface Categored {
+  _id: string
+  name: string
+  src: string
+  keywords: string[]
+}
+export interface Carouseled {
+  _id: string
+  src: string
+  alt: string
+  keywords: string[]
 }

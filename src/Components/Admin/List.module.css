@@ -68,6 +68,11 @@
     rgb(220, 242, 132) 22%,
     rgba(4, 119, 31, 0.9) 99%
   );
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
   text-align: center;
   color: #03351f;
   font-weight: bold;

@@ -4,7 +4,7 @@ import { useRef, RefObject, useState, useEffect } from "react"
 import styles from "../Inserto.module.css"
 import List from "./List"
 import { Toast } from "primereact/toast"
-import { Carousel } from "@/DTO"
+import { Carouselo } from "@/DTO"
 import Image from "next/image"
 const CarouselManager: React.FC = () => {
   const toast = useRef<Toast>(null)
@@ -22,7 +22,7 @@ const CarouselManager: React.FC = () => {
   }
   const [image, setImage] = useState<string>()
   const [action, setAction] = useState<string>("(*I&n()s*e(r&t*^%t^O&n*E(")
-  const [data, setData] = useState<Carousel[] | null>(null)
+  const [data, setData] = useState<Carouselo[] | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [editItemId, setEditItemId] = useState<string | null>(null)
 
@@ -70,15 +70,18 @@ const CarouselManager: React.FC = () => {
   }
   useEffect(() => {
     if (editItemId && data) {
-      setAction( ")U*p)d(sa@!$!2s1!23r2%a$t#e@i*n(")
+      setAction(")U*p)d(sa@!$!2s1!23r2%a$t#e@i*n(")
       const itemToEdit = data.find((item) => item._id === editItemId)
-      if (itemToEdit ) {
+      if (itemToEdit) {
         refs.altEn.current!.value = itemToEdit?.alt?.en
-        refs.altFA.current!.value = itemToEdit?.alt?.fa 
-        refs.altAR.current!.value = itemToEdit?.alt?.ar 
-        refs.keywordsEn.current!.value = itemToEdit?.keywords?.en?.join(",") || ''
-        refs.keywordsFA.current!.value = itemToEdit?.keywords?.fa?.join(",") || ''
-        refs.keywordsAR.current!.value = itemToEdit?.keywords?.ar?.join(",") || ''
+        refs.altFA.current!.value = itemToEdit?.alt?.fa
+        refs.altAR.current!.value = itemToEdit?.alt?.ar
+        refs.keywordsEn.current!.value =
+          itemToEdit?.keywords?.en?.join(",") || ""
+        refs.keywordsFA.current!.value =
+          itemToEdit?.keywords?.fa?.join(",") || ""
+        refs.keywordsAR.current!.value =
+          itemToEdit?.keywords?.ar?.join(",") || ""
         setImage(itemToEdit.src)
       }
     }
@@ -113,10 +116,13 @@ const CarouselManager: React.FC = () => {
             ar: refs.keywordsAR.current?.value?.split(",") || [],
           },
         },
-        action: "(*I&n()s*e(r&t*^%t^O&n*E(",
+        action: action,
       }
-
-      const response = await fetch("/api/data/Post/Admin/Carousel", {
+      const url =
+        action === "(*I&n()s*e(r&t*^%t^O&n*E("
+          ? `/api/data/Post/Admin/Carousel`
+          : `/api/data/Post/Admin/Carousel?aydi=${editItemId}`
+      const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend),
@@ -131,14 +137,15 @@ const CarouselManager: React.FC = () => {
           detail: "موفق",
           life: 3000,
         })
+        location.reload()
       } else {
+        toast.current?.show({
+          severity: "error",
+          summary: "Secondary",
+          detail: " نا موفق",
+          life: 3000,
+        })
       }
-      toast.current?.show({
-        severity: "error",
-        summary: "Secondary",
-        detail: " نا موفق",
-        life: 3000,
-      })
     } catch (error) {
       toast.current?.show({
         severity: "warn",
@@ -152,19 +159,23 @@ const CarouselManager: React.FC = () => {
   return (
     <>
       <Toast ref={toast} />
-
-      <List data={data} isLoading={isLoading} setEditItemId={setEditItemId}/>
-      <select
-        className={styles.selectList}
-        onChange={(e) => setAction(e.target.value)}
-        value={action}
-      >
-        {keys[1].map((action) => (
-          <option key={action} value={keys[0][keys[1].indexOf(action)]}>
-            {action}
-          </option>
+      <List data={data} isLoading={isLoading} setEditItemId={setEditItemId} />
+      <div className={styles.radioBox}>
+        {keys[1].map((act, index) => (
+          <div>
+            <label htmlFor={act}>{act}</label>
+            <input
+              id={act}
+              className={styles.checkboxInput}
+              checked={action === keys[0][index]}
+              onChange={() => setAction(keys[0][index])}
+              type='radio'
+              key={index}
+              value={action}
+            />
+          </div>
         ))}
-      </select>
+      </div>
 
       <form
         className={styles.productBox}

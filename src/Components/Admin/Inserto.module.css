@@ -74,33 +74,53 @@
     rgb(176, 221, 121)
   );
 }
-
-.selectList {
-  outline: none;
-  background: linear-gradient(55deg, #08a222, #033514, rgb(13, 135, 29));
-  color: #ffffff;
-  text-align: center;
-  cursor: pointer;
-  border: double 0.5vh #d1fffd;
-  border-radius: 0.5vh;
+.radioBox{
+  background-color: rgb(101, 192, 76);
+  display: flex;
+  justify-content: space-around;
+}
+.checkboxInput {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #fff2de;
+	outline: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	border-radius: 50%;
 }
 
-.selectList:hover {
-  border: dashed 0.2vh #d1fffd;
-  background: linear-gradient(95deg, #a3e723, #469a18);
-  transform: scale(1.01);
+.checkboxInput:checked {
+	background-color: #a5cd39;
+	border: 1px solid #499b01;
 }
 
-.selectList option {
-  background-color: #dcfd37;
-  color: #001e03;
+.checkboxInput:not(:checked) {
+	position: relative;
 }
 
-.selectList option:nth-child(odd) {
-  color: #ffffff;
-  background-color: rgba(31, 135, 13, 0.756);
-  border-end-end-radius: 22vh;
+.checkboxInput:not(:checked):before,
+.checkboxInput:not(:checked):after {
+	content: '';
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 8px;
+	height: 2px;
+	background-color: #cb0707;
+	transition: transform 0.3s ease;
 }
+
+.checkboxInput:not(:checked):before {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.checkboxInput:not(:checked):after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 .submito{
     background: linear-gradient(95deg, #a3e723, #469a18);
     border: .2vh dashed rgba(13, 135, 29);    
