@@ -3,29 +3,20 @@
 import { useState, useEffect } from "react"
 import Mobile from "./Mobile"
 import DesktopNav from "./PC"
-import { Post } from "../../DTO"
 
 interface NavProps {
-  basket: string[][]
-  setBasketStore: (items: string[][]) => void
-  basketData: Post[]
-  totalPrice: [number, number]
+  language: "en" | "fa" | "ar"
+  setLanguage: (lang: "en" | "fa" | "ar") => void
 }
-const Navbar: React.FC<NavProps> = ({
-  basket,
-  setBasketStore,
-  basketData,
-  totalPrice,
-}) => {
+const Navbar: React.FC<NavProps> = ({ language, setLanguage }) => {
   const [isMobile, setIsMobile] = useState(false)
-  const [isBasketOpen, setIsBasketOpen] = useState<boolean>(false)
 
   useEffect(() => {
-    if (window.innerWidth < 777) {
+    if (window.innerWidth < 999) {
       setIsMobile(true)
     }
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 777)
+      setIsMobile(window.innerWidth <= 999)
     }
 
     handleResize()
@@ -39,24 +30,10 @@ const Navbar: React.FC<NavProps> = ({
   return (
     <nav style={{ marginBottom: `${isMobile ? "7vh" : "8vh"}`, zIndex: 44 }}>
       {isMobile ? (
-        <Mobile
-          basket={basket}
-          basketData={basketData}
-          setBasketStore={setBasketStore}
-          totalPrice={totalPrice}
-          isBasketOpen={isBasketOpen}
-          setIsBasketOpen={setIsBasketOpen}
-        />
+        <Mobile language={language} setLanguage={setLanguage} />
       ) : (
         <div>
-          <DesktopNav
-            isBasketOpen={isBasketOpen}
-            setIsBasketOpen={setIsBasketOpen}
-            basket={basket}
-            basketData={basketData}
-            setBasketStore={setBasketStore}
-            totalPrice={totalPrice}
-          />
+          <DesktopNav language={language} setLanguage={setLanguage} />
         </div>
       )}
     </nav>

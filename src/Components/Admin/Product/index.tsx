@@ -131,10 +131,14 @@ const ProductManager: React.FC = () => {
             ar: refs.keywordsAR.current?.value?.split(",") || [],
           },
         },
-        action: "(*I&n()s*e(r&t*^%t^O&n*E(",
+        action: action,
       }
 
-      const response = await fetch("/api/data/Post/Admin/Product", {
+      const url =
+        action === "(*I&n()s*e(r&t*^%t^O&n*E("
+          ? `/api/data/Post/Admin/Product`
+          : `/api/data/Post/Admin/Product?aydi=${editItemId}`
+      const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend),

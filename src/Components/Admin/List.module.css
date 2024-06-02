@@ -64,9 +64,9 @@
 .header {
   background: linear-gradient(
     44deg,
-    rgba(132, 200, 37, 0.905) 2%,
-    rgb(220, 242, 132) 22%,
-    rgba(4, 119, 31, 0.9) 99%
+    rgba(37, 118, 200, 0.905) 2%,
+    rgb(59, 246, 250) 22%,
+    rgba(4, 119, 108, 0.9) 99%
   );
   height: 12vh;
   display: flex;

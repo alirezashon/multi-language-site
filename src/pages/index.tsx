@@ -10,7 +10,6 @@ import {
   Carouseled,
 } from "../DTO"
 import dynamic from "next/dynamic"
-import { SelectButton } from "primereact/selectbutton"
 
 const Handler = dynamic(() => import("../Handler"), {
   loading: () => <p>در حال بارگیری ...</p>,
@@ -25,14 +24,9 @@ interface Props {
 const RootPage: NextPage<Props> = ({ products, categories, carousel }) => {
   const [loading, setLoading] = useState<boolean>(true)
   const [data, setData] = useState<
-  [Producted[], Categored[], Carouseled[]] | []
+    [Producted[], Categored[], Carouseled[]] | []
   >([])
   const [language, setLanguage] = useState<"en" | "fa" | "ar">("en")
-  const items = [
-    { name: "english", value: "en" },
-    { name: "farsi", value: "fa" },
-    { name: "arabic", value: "ar" },
-  ]
 
   useEffect(() => {
     if (products && categories && carousel) {
@@ -68,7 +62,7 @@ const RootPage: NextPage<Props> = ({ products, categories, carousel }) => {
   return (
     <>
       <NextSeo
-        title='RoomMode'
+        title='pishgaman'
         description='...'
         canonical='https://www.roommode.ir/'
         openGraph={{
@@ -108,17 +102,13 @@ const RootPage: NextPage<Props> = ({ products, categories, carousel }) => {
           }}
         ></div>
       ) : (
-        <div style={{direction:`${language==='en'?'ltr':'rtl'}`}}>
-        {language}
-           <div className="card flex justify-content-center">
-            <SelectButton
-              value={language}
-              onChange={(e) => setLanguage(e.value)}
-              optionLabel="label"
-              options={items}
-            />
-          </div>
-          <Handler loading={loading} data={data} />
+        <div style={{ direction: `${language === "en" ? "ltr" : "rtl"}` }}>
+          <Handler
+            loading={loading}
+            data={data}
+            language={language}
+            setLanguage={setLanguage}
+          />
         </div>
       )}
     </>

@@ -48,3 +48,33 @@ export interface Carouseled {
   alt: string
   keywords: string[]
 }
+export interface Blog {
+  _id: string
+  title: { en: string; fa: string; ar: string }
+  src: string
+  description: { en: string; fa: string; ar: string }
+  keywords: { en: string[]; fa: string[]; ar: string[] }
+  subItems: [
+    {
+      title: { en: string; fa: string; ar: string }
+      src: { type: string; required: true }
+      description: { en: string; fa: string; ar: string }
+      keywords: { en: [string]; fa: [string]; ar: [string] }
+    }
+  ]
+}
+export interface Blogo {
+  _id: string
+  title: string
+  src: string
+  description: { en: string; fa: string; ar: string }
+  keywords: { en: string[]; fa: string[]; ar: string[] }
+  subItems: [
+    {
+      title: { en: string; fa: string; ar: string }
+      src: { type: string; required: true }
+      description: { en: string; fa: string; ar: string }
+      keywords: { en: [string]; fa: [string]; ar: [string] }
+    }
+  ]
+}

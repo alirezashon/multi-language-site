@@ -1,3 +1,4 @@
+import BlogManager from "./Blog"
 import Carousel from "./Carousel"
 import CategoryManager from "./Category"
 import ProductManager from "./Product"
@@ -15,6 +16,9 @@ const Admin: React.FC = () => {
         </div>
         <div className={styles.block}>
           <CategoryManager />
+        </div>{" "}
+        <div className={styles.block}>
+          <BlogManager />
         </div>
       </div>
     </>
