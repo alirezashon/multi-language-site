@@ -23,10 +23,8 @@ const Footer = dynamic(() => import("../Components/Navigation/Footer"), {
 interface Props {
   data: [Producted[], Categored[], Carouseled[]] | []
   loading: boolean
-  language: "en" | "fa" | "ar"
-  setLanguage: (lang: "en" | "fa" | "ar") => void
 }
-const Handler: React.FC<Props> = ({ data, loading, language, setLanguage }) => {
+const Handler: React.FC<Props> = ({ data, loading }) => {
   return (
     <>
       <div className={styles.main}>
@@ -36,14 +34,12 @@ const Handler: React.FC<Props> = ({ data, loading, language, setLanguage }) => {
             open("https://web.whatsapp.com/send?phone=989125159413&text=hello")
           }
         />
-        <Navigation language={language} setLanguage={setLanguage} />
 
         <div className={styles.block}>
           <Carouselali data={data && data[2]} isLoading={loading} />
           <Categoro data={data && data[1]} loading={loading} />
           <Producto data={data && data[0]} loading={loading} />
         </div>
-        <Footer language={language} setLanguage={setLanguage}/>
       </div>
     </>
   )

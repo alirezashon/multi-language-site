@@ -10,6 +10,7 @@ import {
   Carouseled,
 } from "../DTO"
 import dynamic from "next/dynamic"
+import { useLanguage } from "@/Context"
 
 const Handler = dynamic(() => import("../Handler"), {
   loading: () => <p>در حال بارگیری ...</p>,
@@ -22,11 +23,11 @@ interface Props {
 }
 
 const RootPage: NextPage<Props> = ({ products, categories, carousel }) => {
+  const { language, setLanguage } = useLanguage()
   const [loading, setLoading] = useState<boolean>(true)
   const [data, setData] = useState<
     [Producted[], Categored[], Carouseled[]] | []
   >([])
-  const [language, setLanguage] = useState<"en" | "fa" | "ar">("en")
 
   useEffect(() => {
     if (products && categories && carousel) {
@@ -106,9 +107,7 @@ const RootPage: NextPage<Props> = ({ products, categories, carousel }) => {
           <Handler
             loading={loading}
             data={data}
-            language={language}
-            setLanguage={setLanguage}
-          />
+           />
         </div>
       )}
     </>

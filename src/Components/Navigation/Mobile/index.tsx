@@ -7,13 +7,10 @@ import { items } from "../items"
 import Image from "next/image"
 import { GiCrossMark } from "react-icons/gi"
 import { SelectButton } from "primereact/selectbutton"
+import { useLanguage } from "@/Context"
 
-interface NavProps {
-  language: "en" | "fa" | "ar"
-  setLanguage: (lang: "en" | "fa" | "ar") => void
-}
-
-const Mobile: React.FC<NavProps> = ({ language, setLanguage }) => {
+const Mobile: React.FC = () => {
+  const { language, setLanguage } = useLanguage()
   const [drawer, setDrawer] = useState<boolean>(false)
   const [showlang, setShowlang] = useState<boolean>(false)
   const itemso = ["English", "فارسی", "العربیة"]

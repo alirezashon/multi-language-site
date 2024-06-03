@@ -9,21 +9,65 @@
     transform: translateY(-100%);
   }
 }
+.topBar {
+  height: 11vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 3vh;
+}
 
+.icono {
+  width: 20%;
+  height: 100%;
+  border-radius: 0.5vh;
+}
+
+.searchBar {
+  width: 67%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchInput {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.5rem 3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.searchIcon {
+  color: #ccc;
+  position: absolute;
+}
+
+.hearto {
+  padding: 1vh;
+  display: flex;
+  background-color: #eef0e2;
+  border-radius: 23vh;
+  color: rgb(56, 54, 54);
+}
+
+.heart:hover {
+  color: #9c9986;
+}
+
+
+.searchIcon,
+.hearto {
+  cursor: pointer;
+}
 .navBar {
-  background: linear-gradient(
-    25deg,
-    rgb(196, 193, 150),
-    rgb(178, 183, 159),
-    rgb(169, 169, 142)
-  );
-  color: rgb(255, 249, 239);
-  position: fixed;
-  top: 0;
+  color: rgb(2, 17, 23);
+  position: absolute;
+  top: 11vh;
   z-index: 44;
   display: flex;
   justify-content: space-between;
-  direction: rtl;
   text-align: center;
   height: 9vh;
   width: 100vw;
@@ -47,16 +91,11 @@
 .item:hover {
   animation: borderero 1s;
 }
-.icono{
-  width: 20%;
+.selectListo {
+  display: flex;
   height: 100%;
-  border-radius:.5vh;
-}
-.selectListo{
-display: flex;
-height: 100%;
-align-items: center;
-justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-end;
 }
 @media (max-width: 999px) {
 }
