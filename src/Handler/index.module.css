@@ -12,29 +12,29 @@
 .loadingNav {
   background: linear-gradient(
     25deg,
-    rgb(255, 201, 54),
-    rgb(253, 253, 150),
-    rgb(255, 199, 29)
+    rgb(136, 134, 129),
+    rgb(255, 255, 233),
+    rgb(197, 192, 179)
   );
   height: 9vh;
 }
 .loadingStory {
   height: 22vh;
   background-color: #ffffff;
-  box-shadow: 1px 1px 7px 1px #fffbd9, 1px 1px 11vh 1vh #ffba2f inset;
+  box-shadow: 1px 1px 7px 1px #e0dfd2, 1px 1px 11vh 1vh #c8c4bd inset;
 }
 .loadingCirculate {
   height: 7vh;
-  background-color: #e9a734;
+  background-color: #e3d6bf;
 }
 .loadingCarousel {
   height: 33vh;
   background-image: repeating-linear-gradient(
     90deg,
-    #e5d457,
-    #fdb21c 5vh,
-    #f6b566 5vh,
-    #ff9c23 10vh
+    #dbd7b8,
+    #c3bbac 5vh,
+    #c4bdb6 5vh,
+    #b9b5b0 10vh
   );
 }
 .loadingPost {
@@ -42,17 +42,4 @@
 }
 .block{
 margin-top: 12vh;
-}
-.whatsApp {
-  z-index: 2;
-  border: 0.3vh dashed rgb(253, 253, 150);
-  background-color: #25d34b;
-  color: #ffffff;
-  padding: 0.5vh;
-  border-radius: 22vh;
-  font-size: 7vh;
-  position: fixed;
-  right: 7vh;
-  cursor: pointer;
-  bottom: 5vh;
 }

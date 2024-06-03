@@ -53,6 +53,7 @@ const CircularDemo: React.FC<Props> = ({ data, isLoading }) => {
         <p>Loading...</p>
       ) : (
         <Carousel
+        style={{direction:'ltr'}}
           value={data}
           numVisible={1}
           numScroll={1}

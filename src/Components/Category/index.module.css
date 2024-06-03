@@ -3,7 +3,6 @@
   padding: 2vh;
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(22%,0fr));  
-  background-color: rgb(189, 205, 200);
 }
 .category {
   margin-left: 5%;

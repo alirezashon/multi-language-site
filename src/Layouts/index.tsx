@@ -1,9 +1,8 @@
-import { Inter } from "next/font/google";
-import Navigation from "../Components/Navigation";
-import Footer from "@/Components/Navigation/Footer";
-import { LanguageProvider } from "../Context"; // Update the import path as necessary
-
-const inter = Inter({ subsets: ["latin"] });
+import Navigation from "../Components/Navigation"
+import Footer from "@/Components/Navigation/Footer"
+import { LanguageProvider } from "../Context"
+import { FaWhatsapp } from "react-icons/fa"
+import styles from "./index.module.css"
 
 const Layout = ({ children }: any) => {
   return (
@@ -12,9 +11,15 @@ const Layout = ({ children }: any) => {
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <FaWhatsapp
+          className={styles.whatsApp}
+          onClick={() =>
+            open("https://web.whatsapp.com/send?phone=989125159413&text=hello")
+          }
+        />
       </div>
     </LanguageProvider>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

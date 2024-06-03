@@ -2,7 +2,7 @@ export const items = [
   ["Home", "About Us", "Contact Us", "Blog"],
   ["خانه", "درباره ما", "تماس با ما", "وبلاگ"], // Persian
   ["الرئيسية", "معلومات عنا", "اتصل بنا", "مدونة"], // Arabic
-  ['/','/about-us','contact-us','blog']
+  ["/", "/about-us", "contact-us", "blog"],
 ]
 export const footer = [
   [
@@ -10,7 +10,8 @@ export const footer = [
     "Email: info@onroosh.com",
     "Phone Number: 021 2265 5943",
     "Mobile: +98 9113573143 (WhatsApp)",
-    "Central Office: Address",
+    "Central Office",
+    "Address : ",
     "Mehreshad Avenue, Saadi Street, after Namaz Square, Valiasr, Tehran, Iran",
     "All rights reserved for onroosh.com",
   ],
