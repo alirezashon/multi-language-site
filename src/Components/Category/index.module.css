@@ -1,8 +1,8 @@
 .categoryBox {
   width: 100%;
-  padding: 2vh;
+  padding-right: 2vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(22%,0fr));  
+  grid-template-columns: repeat(auto-fit,minmax(22%,1fr));  
 }
 .category {
   margin-left: 5%;

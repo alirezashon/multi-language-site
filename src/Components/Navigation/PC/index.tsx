@@ -3,13 +3,11 @@ import styles from "./index.module.css"
 import { useState } from "react"
 import { items } from "../items"
 import Image from "next/image"
-import { SelectButton } from "primereact/selectbutton"
 import { BsHeart, BsSearch } from "react-icons/bs"
 import { useLanguage } from "@/Context"
 
 const PC: React.FC = () => {
   const [showlang, setShowlang] = useState<boolean>(false)
-  const itemso = ["English", "فارسی", "العربیة"]
   const { language, setLanguage } = useLanguage()
 
   return (
@@ -67,19 +65,41 @@ const PC: React.FC = () => {
         </div>
         <div className={styles.selectListo}>
           {showlang ? (
-            <SelectButton
-              value={language}
-              onChange={(e) =>
-                setLanguage(
-                  e.value === "English"
-                    ? "en"
-                    : e.value === "فارسی"
-                    ? "fa"
-                    : "ar"
-                )
-              }
-              options={itemso}
-            />
+            <div className={styles.langFlag}>
+              <Image
+                src='/images/england.svg'
+                width={77}
+                height={77}
+                alt=''
+                className={styles.flag}
+                onClick={() => {
+                  setLanguage("en")
+                  setShowlang(false)
+                }}
+              />
+              <Image
+                src='/images/arabia.png'
+                width={77}
+                height={77}
+                alt=''
+                className={styles.flag}
+                onClick={() => {
+                  setLanguage("ar")
+                  setShowlang(false)
+                }}
+              />
+              <Image
+                src='/images/iran.png'
+                width={77}
+                height={77}
+                alt=''
+                className={styles.flag}
+                onClick={() => {
+                  setLanguage("fa")
+                  setShowlang(false)
+                }}
+              />
+            </div>
           ) : (
             <div onMouseOver={() => setShowlang(true)}>
               {language === "en"

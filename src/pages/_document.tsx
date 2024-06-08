@@ -6,7 +6,7 @@ export default function Document() {
       <title> pishgaman </title>
       <meta name='description' content='top shop store' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <link rel='icon' href='images/icon.jpg' />
+      <link rel='icon' href='images/icon-kochol.png' />
       <Head />
       <body>
         <Main />

@@ -1,0 +1,38 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(40%,1));
+    gap: 1vh;
+  }
+  
+  .videoWrapper {
+    position: relative;
+  }
+  
+  .placeholder {
+    position: relative;
+    cursor: pointer;
+  }
+  .placeholderimage{
+    width: 98%;
+    height:  55vh;
+    border: 2vh ridge rgba(0, 0, 0, 0.7);
+  }
+  .playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  @media (min-width: 768px) {
+    .gridContainer {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
