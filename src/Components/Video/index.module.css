@@ -15,7 +15,8 @@
   .placeholderimage{
     width: 98%;
     height:  55vh;
-    border: 2vh ridge rgba(0, 0, 0, 0.7);
+    border-radius: 1vh;
+    border: .5vh solid rgba(237, 239, 178, 0.7);
   }
   .playButton {
     position: absolute;
