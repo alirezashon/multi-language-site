@@ -15,8 +15,8 @@ const Categoro: React.FC<Props> = ({ data, loading }) => {
               <div className={styles.loadingSquare}></div>
             </div>
           ))
-        : data?.map((cat) => (
-            <div className={styles.category}>
+        : data?.map((cat,index) => (
+            <div key={index} className={styles.category}>
               <Image
                 className={styles.categorimage}
                 src={`data:image/jpeg;base64,${cat.src}`}

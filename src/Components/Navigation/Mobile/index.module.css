@@ -16,11 +16,12 @@
 }
 
 .drawer {
+  padding: 1vh .5vh;
   width: 40vw;
   height: 100vh;
   background: radial-gradient(
-    rgba(253, 144, 27, 0.809),
-    rgba(252, 190, 6, 0.774)
+    rgba(188, 188, 188, 0.809),
+    rgba(206, 198, 174, 0.774)
   );
   direction: rtl;
   overflow-y: auto;
@@ -35,14 +36,15 @@
 }
 
 .itemBox {
-  background: radial-gradient(
-    rgba(249, 140, 45, 0.823),
-    rgba(231, 143, 27, 0.855)
+  background: linear-gradient(5deg,
+    rgba(64, 64, 64, 0.855),
+    rgba(175, 171, 148, 0.855),
+    rgba(255, 238, 223, 0.823)
   );
   cursor: pointer;
   margin: 1vh;
   padding: 1vh;
-  border: 0.5vh ridge rgba(245, 165, 26, 0.816);
+  border: 0.5vh ridge rgba(255, 253, 227, 0.816);
 }
 
 .itemBox:hover {
@@ -71,17 +73,18 @@
 }
 .selectListo {
   display: flex;
-  
-  text-wrap: nowrap;
-  height: 100%;
+  width: 100%;
+  margin-top: 22vh;
+  background-color: rgb(129, 129, 129);
+  justify-content: space-around;
 }
 
 .navIcon {
   background: radial-gradient(#fff7db, #fffff9);
   color: #e27305;
   border: 0.3vh dashed rgba(255, 113, 18, 0.949);
-  width: 5vh;
-  height: 5vh;
+  width: 9vh;
+  height: 7vh;
   margin: 0.2vh;
   display: flex;
   font-weight: bold;
@@ -101,6 +104,26 @@
   transform: rotate(120deg) scale(1.1);
   cursor: pointer;
 }
+.searchBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchInput {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.5rem 3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.searchIcon {
+  color: #ccc;
+  position: absolute;
+}
+
 .iconBox {
   display: flex;
   justify-content: flex-end;

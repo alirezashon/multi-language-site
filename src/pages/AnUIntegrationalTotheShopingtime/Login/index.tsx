@@ -5,18 +5,13 @@ import Image from 'next/image'
 import styles from './index.module.css'
 import { SignInoghlia } from '../../../Components/Auth'
 import Router from 'next/router'
-import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer, Zoom } from 'react-toastify'
 
 const Login: React.FC = () => {
 	const [phone, setPhone] = useState<string>()
 	const [password, setPassword] = useState<string>()
 	const [isLoading, setIsLoading] = useState(false)
-	const [toast, setToast] = useState<[string, string]>(['', ''])
 
-	const sendToast = (message: string, color: string) => {
-		setToast([message, color])
-	}
+	
 	const submiter = async () => {
 		;;(await SignInoghlia(setIsLoading, `${phone}`, `${password}`)) ===
 			'S!A@k%s$e^x%f^u*l^' && Router.push('/AnUIntegrationalTotheShopingtime')
@@ -24,16 +19,7 @@ const Login: React.FC = () => {
 
 	return (
 		<>
-			<ToastContainer
-				position={'top-right'}
-				newestOnTop
-				pauseOnHover
-				style={{
-					transform: 'rotate(-7deg)',
-					margin: '2vh',
-				}}
-				transition={Zoom}
-			/>
+		
 			<div className={styles.container}>
 				<div className={`${styles.formBox}  ${isLoading && styles.animate}`}>
 					{!isLoading && (

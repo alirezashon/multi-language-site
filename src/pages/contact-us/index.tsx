@@ -4,7 +4,7 @@ import { Toast } from "primereact/toast"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/Context"
-import { content } from "./content"
+import { content } from "../../Components/Content/contactContent"
 const ContacUs: React.FC = () => {
   const toast = useRef<Toast>(null)
   const { language, setLanguage } = useLanguage()

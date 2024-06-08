@@ -15,8 +15,12 @@ const Producto: React.FC<Props> = ({ data, loading }) => {
               <div className={styles.loadingSquare}></div>
             </div>
           ))
-        : data?.map((cat) => (
-          <div className={styles.product}>
+        : data?.map((cat, index) => (
+            <div
+              key={index}
+              className={styles.product}
+              onClick={() => (location.href = `/blog?id=${cat._id}`)}
+            >
               <h3 className={styles.productname}>{cat.title}</h3>
               <Image
                 className={styles.productimage}
@@ -25,9 +29,7 @@ const Producto: React.FC<Props> = ({ data, loading }) => {
                 width={999}
                 height={777}
               />
-              <div className={styles.description}>
-                {cat.description}
-              </div>
+              <div className={styles.description}>{cat.description}</div>
             </div>
           ))}
     </div>

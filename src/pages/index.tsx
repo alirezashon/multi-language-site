@@ -95,19 +95,15 @@ const RootPage: NextPage<Props> = ({ products, categories, carousel }) => {
             height: "100vh",
             background: `repeating-linear-gradient(
               90deg,
-              #d6c66b,
-              #eebe20 5vh,
-              #fbf5a0 5vh,
-              #ffffff 10vh
+          rgb(136, 134, 129),
+          rgb(255, 255, 233),
+          rgb(197, 192, 179)
             )`,
           }}
         ></div>
       ) : (
         <div style={{ direction: `${language === "en" ? "ltr" : "rtl"}` }}>
-          <Handler
-            loading={loading}
-            data={data}
-           />
+          <Handler loading={loading} data={data} />
         </div>
       )}
     </>
@@ -122,7 +118,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          category: "@L$L%O%F#D%M^",
           authType: "^c(a)ta*@x$a#r#x%s^ezl&i#A!",
         }),
       }

@@ -6,6 +6,14 @@ export interface Product {
   description: { en: string; fa: string; ar: string }
   keywords: { en: string[]; fa: string[]; ar: string[] }
 }
+export interface Producted {
+  _id: string
+  title: string
+  src: string
+  link: string
+  description: string
+  keywords: string[]
+}
 
 export interface Category {
   _id: string
@@ -27,14 +35,6 @@ export interface Form {
   date: Date
 }
 
-export interface Producted {
-  _id: string
-  title: string
-  src: string
-  link: string
-  description: string
-  keywords: string[]
-}
 
 export interface Categored {
   _id: string

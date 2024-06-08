@@ -8,6 +8,7 @@ import Image from "next/image"
 import { GiCrossMark } from "react-icons/gi"
 import { SelectButton } from "primereact/selectbutton"
 import { useLanguage } from "@/Context"
+import { BsSearch } from "react-icons/bs"
 
 const Mobile: React.FC = () => {
   const { language, setLanguage } = useLanguage()
@@ -15,12 +16,12 @@ const Mobile: React.FC = () => {
   const [showlang, setShowlang] = useState<boolean>(false)
   const itemso = ["English", "فارسی", "العربیة"]
 
-  const closeNav = (event: MouseEvent) => {
-    if (drawer !== null && event.clientX > window.innerWidth * 0.4) {
-      setDrawer(false)
-    }
-  }
   useEffect(() => {
+    const closeNav = (event: MouseEvent) => {
+      if (drawer !== null && event.clientX > window.innerWidth * 0.4) {
+        setDrawer(false)
+      }
+    }
     window.addEventListener("click", closeNav)
 
     return () => {
@@ -35,11 +36,31 @@ const Mobile: React.FC = () => {
             className={styles.close}
             onClick={() => setDrawer(false)}
           />
-          <div className={styles.searchBox}>{/* <Search /> */}</div>
+          <form className={styles.searchBar}>
+          <BsSearch
+            className={styles.searchIcon}
+            style={{
+              right: `${language !== "en" ? "1rem" : ""}`,
+              left: `${language === "en" && "1rem"}`,
+              transform: `rotate(19deg)`,
+            }}
+          />
+          <input
+            className={styles.searchInput}
+            type='search'
+            placeholder={
+              language === "en"
+                ? "Search for products"
+                : language === "fa"
+                ? "جستجو برای محصولات"
+                : "ابحث عن المنتجات"
+            }
+          />
+        </form>
           {items &&
             items[language === "en" ? 0 : language === "fa" ? 1 : 2].map(
               (item: string, itemIndex) => (
-                <div className={styles.itemBox}>
+                <div key={itemIndex} className={styles.itemBox}>
                   <Link
                     key={itemIndex}
                     href={`/${items[0][itemIndex]}`}
@@ -50,12 +71,6 @@ const Mobile: React.FC = () => {
                 </div>
               )
             )}
-        </div>
-      ) : (
-        <div className={styles.navBar}>
-          <div className={styles.navIcon} onClick={() => setDrawer(true)}>
-            <p>☰</p>
-          </div>
           <div className={styles.selectListo}>
             {showlang ? (
               <SelectButton
@@ -81,6 +96,13 @@ const Mobile: React.FC = () => {
               </div>
             )}
           </div>
+        </div>
+      ) : (
+        <div className={styles.navBar}>
+          <div className={styles.navIcon} onClick={() => setDrawer(true)}>
+            <p>☰</p>
+          </div>
+
           <div className={styles.iconBox}>
             <Image
               src={"/images/icon.jpg"}

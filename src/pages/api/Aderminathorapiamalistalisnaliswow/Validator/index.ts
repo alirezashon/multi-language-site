@@ -11,7 +11,7 @@ const Validator = async (req: NextApiRequest, res: NextApiResponse) => {
 			const { authType, token } = req.body
 			if (authType === 'Admin_ValidaTe*%') {
 				if (token) {
-					await db.connectToShop()
+					await db.connect2DB()
 					const kalim = token.split('#')[1].replace(/"$/, '')
 
 					const session = await AdminSession.findOne({

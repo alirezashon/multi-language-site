@@ -95,7 +95,19 @@ const ProductManager: React.FC = () => {
       }
     }
     !data && getData()
-  }, [editItemId, data])
+  }, [
+    editItemId,
+    data,
+    refs.titleEn,
+    refs.titleFA,
+    refs.titleAR,
+    refs.descriptionEn,
+    refs.descriptionFA,
+    refs.descriptionAR,
+    refs.keywordsEn,
+    refs.keywordsFA,
+    refs.keywordsAR,
+  ])
   const setFile = () => {
     const reader = new FileReader()
     reader.onloadend = () => {
@@ -182,7 +194,7 @@ const ProductManager: React.FC = () => {
       />
       <div className={styles.radioBox}>
         {keys[1].map((act, index) => (
-          <div>
+          <div key={index}>
             <label htmlFor={act}>{act}</label>
             <input
               id={act}

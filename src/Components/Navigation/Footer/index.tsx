@@ -5,7 +5,6 @@ import { useLanguage } from "@/Context"
 import Image from "next/image"
 import { FaFacebook } from "react-icons/fa"
 import { BsInstagram, BsLinkedin } from "react-icons/bs"
-import { RiEnglishInput } from "react-icons/ri"
 
 const Footer: React.FC = () => {
   const { language, setLanguage } = useLanguage()
@@ -21,9 +20,9 @@ const Footer: React.FC = () => {
             className={styles.icono}
           />
           <div className={styles.iconBox}>
-            <FaFacebook />
-            <BsInstagram />
-            <BsLinkedin />
+            <FaFacebook className={styles.icons} onClick={() => open("/")} />
+            <BsInstagram className={styles.icons} onClick={() => open("/")} />
+            <BsLinkedin className={styles.icons} onClick={() => open("/")} />
           </div>
         </div>
         <div className={styles.footerBox}>
@@ -36,7 +35,6 @@ const Footer: React.FC = () => {
                   className={styles.item}
                 >
                   {item}
-                  <RiEnglishInput />
                 </Link>
               )
           )}
@@ -51,11 +49,36 @@ const Footer: React.FC = () => {
                   className={styles.item}
                 >
                   {item}
-                  <RiEnglishInput />
                 </Link>
               )
           )}
         </div>
+      </div>
+      <div className={styles.langFlag}>
+        <Image
+          src='/images/england.svg'
+          width={77}
+          height={77}
+          alt=''
+          className={styles.flag}
+          onClick={()=>setLanguage('en')}
+        />
+        <Image
+          src='/images/arabia.png'
+          width={77}
+          height={77}
+          alt=''
+          className={styles.flag}
+          onClick={()=>setLanguage('ar')}
+        />
+        <Image
+          src='/images/iran.png'
+          width={77}
+          height={77}
+          alt=''
+          className={styles.flag}
+          onClick={()=>setLanguage('fa')}
+        />
       </div>
     </>
   )

@@ -3,7 +3,7 @@ import styles from "./index.module.css"
 import { Toast } from "primereact/toast"
 import Image from "next/image"
 import { useLanguage } from "@/Context"
-import { content } from "./content"
+import { content } from "../../Components/Content/aboutContent"
 const ContacUs: React.FC = () => {
   const toast = useRef<Toast>(null)
   const { language, setLanguage } = useLanguage()
