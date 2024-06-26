@@ -1,8 +1,8 @@
+export const links = ['/','/about-us','/contact-us','/products',]
 export const items = [
-  ["Home", "About Us", "Contact Us", "Blog"],
-  ["خانه", "درباره ما", "تماس با ما", "وبلاگ"], // Persian
-  ["الرئيسية", "معلومات عنا", "اتصل بنا", "مدونة"], // Arabic
-  ["/", "/about-us", "contact-us", "blog"],
+  ["Home", "About Us", "Contact Us", "products"],
+  ["خانه", "درباره ما", "تماس با ما", "محصولات"], // Persian
+  ["الرئيسية", "معلومات عنا", "اتصل بنا", "المنتجات"], // Arabic
 ]
 export const footer = [
   [

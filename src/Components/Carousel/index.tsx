@@ -1,28 +1,27 @@
-import { Galleria, GalleriaResponsiveOptions } from "primereact/galleria";
-import Image from "next/image";
-import styles from "./index.module.css";
-import { Carouseled } from "@/DTO";
+import { Galleria, GalleriaResponsiveOptions } from 'primereact/galleria'
+import Image from 'next/image'
+import styles from './index.module.css'
+import { Carouseled } from '@/DTO'
 
 interface Props {
-  data: Carouseled[] | undefined;
-  isLoading: boolean;
+  data: Carouseled[] | undefined
 }
 
-const CircularDemo: React.FC<Props> = ({ data, isLoading }) => {
+const CircularDemo: React.FC<Props> = ({ data}) => {
   const responsiveOptions: GalleriaResponsiveOptions[] = [
     {
-      breakpoint: "991px",
+      breakpoint: '991px',
       numVisible: 4,
     },
     {
-      breakpoint: "767px",
+      breakpoint: '767px',
       numVisible: 3,
     },
     {
-      breakpoint: "575px",
+      breakpoint: '575px',
       numVisible: 1,
     },
-  ];
+  ]
 
   const itemTemplate = (item: Carouseled) => {
     return (
@@ -35,16 +34,12 @@ const CircularDemo: React.FC<Props> = ({ data, isLoading }) => {
           height={1111}
         />
       </div>
-    );
-  };
-
-
+    )
+  }
 
   return (
-    <div className="card">
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
+    <div className='card'>
+
         <Galleria
           value={data}
           responsiveOptions={responsiveOptions}
@@ -57,12 +52,10 @@ const CircularDemo: React.FC<Props> = ({ data, isLoading }) => {
           showIndicators
           showThumbnails={false}
           item={itemTemplate}
-          style={{ width: "100%" ,direction:'ltr'}}
+          style={{ width: '100%', direction: 'ltr' }}
         />
-      )}
     </div>
-  );
-};
+  )
+}
 
-export default CircularDemo;
-
+export default CircularDemo

@@ -93,3 +93,15 @@
   width: fit-content;
   border-bottom: 0.1vh solid #000000;
 }
+@media (max-width: 876px) {
+  .mainContent {
+    flex-direction: column-reverse;
+  }
+  .section {
+    width: 100%;
+  }
+  .irano {
+    width: 100%;
+    height: 44vh;
+  }
+}

@@ -1,10 +1,10 @@
-import Link from "next/link"
-import styles from "./index.module.css"
-import { useState } from "react"
-import { items } from "../items"
-import Image from "next/image"
-import { BsHeart, BsSearch } from "react-icons/bs"
-import { useLanguage } from "@/Context"
+import Link from 'next/link'
+import styles from './index.module.css'
+import { useState } from 'react'
+import { items, links } from '../items'
+import Image from 'next/image'
+import { BsHeart, BsSearch } from 'react-icons/bs'
+import { useLanguage } from '@/Context'
 
 const PC: React.FC = () => {
   const [showlang, setShowlang] = useState<boolean>(false)
@@ -15,8 +15,8 @@ const PC: React.FC = () => {
       <div className={styles.topBar}>
         <Image
           src='/images/icon.jpg'
-          width={555}
-          height={555}
+          width={1555}
+          height={1555}
           alt=''
           className={styles.icono}
         />
@@ -24,8 +24,8 @@ const PC: React.FC = () => {
           <BsSearch
             className={styles.searchIcon}
             style={{
-              right: `${language !== "en" ? "1rem" : ""}`,
-              left: `${language === "en" && "1rem"}`,
+              right: `${language !== 'en' ? '1rem' : ''}`,
+              left: `${language === 'en' && '1rem'}`,
               transform: `rotate(19deg)`,
             }}
           />
@@ -33,11 +33,11 @@ const PC: React.FC = () => {
             className={styles.searchInput}
             type='search'
             placeholder={
-              language === "en"
-                ? "Search for products"
-                : language === "fa"
-                ? "جستجو برای محصولات"
-                : "ابحث عن المنتجات"
+              language === 'en'
+                ? 'Search for products'
+                : language === 'fa'
+                ? 'جستجو برای محصولات'
+                : 'ابحث عن المنتجات'
             }
           />
         </form>
@@ -47,15 +47,15 @@ const PC: React.FC = () => {
       </div>
       <nav
         className={styles.navBar}
-        style={{ direction: `${language === "en" ? "ltr" : "rtl"}` }}
+        style={{ direction: `${language === 'en' ? 'ltr' : 'rtl'}` }}
       >
         <div className={styles.itemsBox}>
           {items &&
-            items[language === "en" ? 0 : language === "fa" ? 1 : 2].map(
+            items[language === 'en' ? 0 : language === 'fa' ? 1 : 2].map(
               (item: string, itemIndex) => (
                 <Link
                   key={itemIndex}
-                  href={`${items[3][itemIndex]}`}
+                  href={`${links[itemIndex]}`}
                   className={styles.item}
                 >
                   {item}
@@ -73,7 +73,7 @@ const PC: React.FC = () => {
                 alt=''
                 className={styles.flag}
                 onClick={() => {
-                  setLanguage("en")
+                  setLanguage('en')
                   setShowlang(false)
                 }}
               />
@@ -84,7 +84,7 @@ const PC: React.FC = () => {
                 alt=''
                 className={styles.flag}
                 onClick={() => {
-                  setLanguage("ar")
+                  setLanguage('ar')
                   setShowlang(false)
                 }}
               />
@@ -95,18 +95,18 @@ const PC: React.FC = () => {
                 alt=''
                 className={styles.flag}
                 onClick={() => {
-                  setLanguage("fa")
+                  setLanguage('fa')
                   setShowlang(false)
                 }}
               />
             </div>
           ) : (
             <div onMouseOver={() => setShowlang(true)}>
-              {language === "en"
-                ? "Language"
-                : language === "fa"
-                ? "زبان"
-                : "اللغة"}
+              {language === 'en'
+                ? 'Language'
+                : language === 'fa'
+                ? 'زبان'
+                : 'اللغة'}
             </div>
           )}
         </div>

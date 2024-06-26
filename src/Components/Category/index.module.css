@@ -17,6 +17,6 @@
 }
 @media (max-width:878px) {
   .categoryBox {
-    grid-template-columns: repeat(auto-fit,minmax(33%,1fr));  
+    grid-template-columns: repeat(auto-fit,minmax(44%,1fr));  
   }  
 }

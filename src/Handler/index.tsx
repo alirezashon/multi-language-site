@@ -31,7 +31,7 @@ const Handler: React.FC<Props> = ({ data, loading }) => {
     <>
       <div className={styles.main}>
         <div className={styles.block}>
-          <Carouselali data={data && data[2]} isLoading={loading} />
+          <Carouselali data={data && data[2]} />
           <div className={styles.mainContent}>
             <div className={styles.section}>
               <p>{content.main[language]}</p>

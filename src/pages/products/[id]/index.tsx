@@ -3,6 +3,7 @@ import { GetServerSideProps, NextPage } from "next"
 import Head from "next/head"
 import { Product, Producted } from "@/DTO"
 import { useLanguage } from "../../../Context"
+import Image from "next/image"
 
 interface PostProps {
   post: Product
@@ -38,7 +39,7 @@ const PostDisplay: React.FC<PostDisplayProps> = ({ post }) => {
   return (
     <div>
       <h1>{post.title}</h1>
-      <img src={post.src} alt={post.title} />
+      <Image src={post.src} alt={post.title} width={777}height={777} />
       <p>{post.description}</p>
       <ul>
         {post.keywords.map((keyword, index) => (
